@@ -8,16 +8,17 @@ extern crate rustc_serialize;
 extern crate cbor;
 
 use std::fmt;
-use std::fs;
+// use std::fs;
 use std::fs::{File};
 use std::io::prelude::*;
 use std::path::Path;
 use std::string::String;
-use std::error::Error;
+// use std::error::Error;
 use std::sync::Arc;
 
-use docopt::Docopt;
-use cbor::{ Encoder, Decoder};
+// use docopt::Docopt;
+use cbor::{ Encoder};
+// use cbor::{ Encoder, Decoder};
 
 use self_encryption::*;
 
@@ -52,7 +53,6 @@ impl SelfEncrypt {
 
 Q_OBJECT! { SelfEncrypt:
     slot fn encrypt(String);
-//    signal fn test();
 }
 
 fn to_hex(ch: u8) -> String {
@@ -92,7 +92,7 @@ impl Storage for MyStorage {
     data
   }
 
-    fn put(&self, name: Vec<u8>, data: Vec<u8>) {
+  fn put(&self, name: Vec<u8>, data: Vec<u8>) {
     let pathstr = file_name(&name);
     let tmpname = self.storage_path.clone() + &pathstr;
     let path = Path::new(&tmpname);
@@ -104,8 +104,8 @@ impl Storage for MyStorage {
     match file.write_all(&data[..]) {
              Err(_) => panic!("couldn't write "),
              Ok(_) => println!("chunk  written")
-        };
-    }
+    };
+  }
 }
 
 

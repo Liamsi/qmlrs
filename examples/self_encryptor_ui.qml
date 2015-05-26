@@ -29,7 +29,7 @@ ApplicationWindow {
       }
 
       Button {
-        text: "Calculate"
+        text: "encrypt"
 
         onClicked: encrypt()
       }
