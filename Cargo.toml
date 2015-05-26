@@ -9,6 +9,16 @@ build = "build.rs"
 
 [dependencies]
 libc = "*"
+rand = "*"
+tempdir = "*"
+docopt = "*"
+rustc-serialize = "*"
+rust-crypto = "*"
+cbor = "*"
+asynchronous = "*"
 
 [build-dependencies.pkg-config]
 git = "https://github.com/alexcrichton/pkg-config-rs"
+
+[dependencies.self_encryption]
+git = "https://github.com/maidsafe/self_encryption.git"
